@@ -23,7 +23,7 @@ describe('Component: User', () => {
     let fixture = TestBed.createComponent(UserComponent);
     let app = fixture.debugElement.componentInstance;
     let userService = fixture.debugElement.injector.get(UserService);
-    fixture.detectChanges();
+    fixture.detectChanges(); // This is needed because only with our app running on the browser then it'd happens automatically. This helps us update our properties
     expect(userService.user.name).toEqual(app.user.name);
   });
 
