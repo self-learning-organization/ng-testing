@@ -54,7 +54,7 @@ describe('Component: User', () => {
     expect(app.data).toBe(undefined);
   });
 
-  it('should fetch data successfully if called asynchronously', async(() => {
+  it('should fetch data successfully if called asynchronously', async(() => { // async function wraps the callback
     let fixture = TestBed.createComponent(UserComponent);
     let app = fixture.debugElement.componentInstance;
     let dataService = fixture.debugElement.injector.get(DataService);
@@ -73,7 +73,7 @@ describe('Component: User', () => {
     let spy = spyOn(dataService, 'getDetails')
       .and.returnValue(Promise.resolve('Data'));
     fixture.detectChanges();
-    tick();
+    tick(); // The cue to finish all asynchronous tasks in a fake asynchronous environment
     expect(app.data).toBe('Data');
 
   }));
