@@ -9,13 +9,14 @@ describe('Component: User', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [UserComponent]
-    });
+    // });
+    }).compileComponents() // Gotta use this line instead if I'm not CLI/web-pack based setup 
   });
 
   it('should create the app', () => {
     let fixture = TestBed.createComponent(UserComponent);
     let app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(app).toBeTruthy(); // Checks if my component instance from the debugElement that is exposed to us for testing purposes kind of exists. So that we know whether the application's actually starting up
   });
 
   it('should use the user name from the service', () => {
